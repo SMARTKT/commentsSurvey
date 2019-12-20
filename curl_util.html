@@ -5,6 +5,25 @@
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
   <body>
 
   	<div class="form-popup" id="myForm">
@@ -43,7 +62,7 @@
   	<pre>
   		<table>
   			<!--start-->
-  			<div hidden id="commentCodeID">curl_util</div><tr>
+<div hidden id="commentCodeID">curl_util</div><tr>
 <td><pre><code class="language-c">/*************************************************************************** </code></pre></td>
 </tr>
 <tr>
@@ -135,7 +154,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">/* This define is "almost" required to build on HPUX 11 */ </code></pre></td>
-<td><button type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#include &lt;arpa/inet.h> </code></pre></td>
@@ -211,7 +230,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#define EINTR    4 /* errno.h value */ </code></pre></td>
-<td><button type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#undef  EINVAL </code></pre></td>
@@ -245,7 +264,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#endif /* w32api &lt; 3.6 */ </code></pre></td>
-<td><button type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#endif /* ENABLE_IPV6 && __MINGW32__*/ </code></pre></td>
@@ -327,7 +346,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">  *optr = 0; /* in case no sprintf was used */ </code></pre></td>
-<td><button type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -487,7 +506,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">/* use instead of perror() on generic windows */ </code></pre></td>
-<td><button type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">void win32_perror(const char *msg) </code></pre></td>
@@ -662,7 +681,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> * Portable function used for waiting a specific amount of ms. </code></pre></td>
-<td><button type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * Waiting indefinitely with this function is not allowed, a </code></pre></td>
@@ -858,7 +877,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">    return 0; /* fail */ </code></pre></td>
-<td><button type="button" id="comment7" onclick="openForm(this.id)">Comment 7 (LAST)</button></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">  } </code></pre></td>

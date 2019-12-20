@@ -5,6 +5,25 @@
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
   <body>
 
   	<div class="form-popup" id="myForm">
@@ -43,12 +62,12 @@
   	<pre>
   		<table>
   			<!--start-->
-  			<div hidden id="commentCodeID">plplot_plmem</div><tr>
+<div hidden id="commentCodeID">plplot_plmem</div><tr>
 <td><pre><code class="language-c">/* </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">xId: plmem.c 11966 2011-10-14 07:10:05Z andrewross $ </code></pre></td>
-<td><button type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -145,7 +164,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">! @file </code></pre></td>
-<td><button type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">!  These functions provide allocation and deallocation of two-dimensional </code></pre></td>
@@ -179,7 +198,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">! Determine the Iliffe column vector of pointers to PLFLT row </code></pre></td>
-<td><button type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">! vectors corresponding to a 2D matrix of PLFLT's that is statically </code></pre></td>
@@ -282,7 +301,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">! Allocate a block of memory for use as a matrix of type </code></pre></td>
-<td><button type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">! PLFLT_MATRIX (organized as an Iliffe column vector of pointers to </code></pre></td>
@@ -388,7 +407,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">plFree2dGrid() </code></pre></td>
-<td><button type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -458,7 +477,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">plMinMax2dGrid() </code></pre></td>
-<td><button type="button" id="comment6" onclick="openForm(this.id)">Comment 6 (LAST)</button></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>

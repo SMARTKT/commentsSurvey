@@ -5,6 +5,25 @@
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
   <body>
 
   	<div class="form-popup" id="myForm">
@@ -43,7 +62,7 @@
   	<pre>
   		<table>
   			<!--start-->
-  			<div hidden id="commentCodeID">libpng_pngmem</div><tr>
+<div hidden id="commentCodeID">libpng_pngmem</div><tr>
 <td><pre><code class="language-c">/* pngmem.c - stub functions for memory allocation </code></pre></td>
 </tr>
 <tr>
@@ -150,7 +169,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">         /* We may have a jmp_buf left to deallocate. */ </code></pre></td>
-<td><button type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">         png_free_jmpbuf(&dummy_struct); </code></pre></td>
@@ -226,7 +245,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">/* png_malloc_base, an internal function added at libpng 1.6.0, does the work of </code></pre></td>
-<td><button type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * allocating memory, taking into account limits and PNG_USER_MEM_SUPPORTED. </code></pre></td>
@@ -281,7 +300,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">   /* Some compilers complain that this is always true.  However, it </code></pre></td>
-<td><button type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    * can be false when integer overflow happens. </code></pre></td>
@@ -462,7 +481,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">   /* Check for overflow on the elements count (so the caller does not have to </code></pre></td>
-<td><button type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    * check.) </code></pre></td>

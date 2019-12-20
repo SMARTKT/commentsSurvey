@@ -5,6 +5,25 @@
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
   <body>
 
   	<div class="form-popup" id="myForm">
@@ -43,9 +62,9 @@
   	<pre>
   		<table>
   			<!--start-->
-  			<div hidden id="commentCodeID">light_riders_bot_bot</div><tr>
+<div hidden id="commentCodeID">light_riders_bot_bot</div><tr>
 <td><pre><code class="language-c"># Use the game by - pip install git+https://github.com/wonderworks-software/PyFlow.git@master </code></pre></td>
-<td><button type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">class Bot: </code></pre></td>
@@ -274,7 +293,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">        # with open('log.txt', 'a') as file: </code></pre></td>
-<td><button type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">        #     file.write("Round: " + str(self.game.round) + " Begin!\n" + "length of legal_dirs: " + str(len(legal)) + "\n") </code></pre></td>
@@ -353,7 +372,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">                # TODO Maybe add dead end check? (only needed when next move is "pass") </code></pre></td>
-<td><button type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">                # TODO Maybe can add it before issue_order_pass </code></pre></td>
@@ -441,7 +460,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">                # Check if any immediate neighbor square is illegal move and remove it </code></pre></td>
-<td><button type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">                my_id = self.game.my_botid </code></pre></td>

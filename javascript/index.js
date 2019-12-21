@@ -1,19 +1,15 @@
 var CODE_ID = document.getElementById("commentCodeID").innerHTML;
 console.log(CODE_ID);
 var clickedBtn = "";
-var email = "";
-var name = "";
-var designation = "";
-var affiliation = "";
+var urlParams = new URLSearchParams(window.location.search);
+var email = urlParams.get("email");
+console.log(email);
 function openForm(btnId) {
 	if (clickedBtn != "")
 	{
 		document.getElementById(clickedBtn).style.background = "";
 	}
 	document.getElementById("emailField").value = email;
-	document.getElementById("nameField").value = name;
-	document.getElementById("designationField").value = designation;
-	document.getElementById("affiliationField").value = affiliation;
 	clickedBtn = btnId;
 	document.getElementById(btnId).style.background = "red";
   	document.getElementById("myForm").style.display = "block";
@@ -42,15 +38,12 @@ function postToGoogle() {
 	var field4 = $("#commentAlternate").val();
 
 	email = $("#emailField").val();
-	name = $("#nameField").val();
-	designation = $("#designationField").val();
-	affiliation = $("#affiliationField").val();
 
 
 	$.ajax({
 	    url: "https://docs.google.com/forms/d/e/1FAIpQLSfFptUsvMpu-bhgJRuWcxtsTY5arq1IRLDeiWMQrfLY0ucRGg/formResponse?",
 		data: {"entry.1036359742": field1, "entry.1158064626": field2, "entry.841187499": field3, "entry.698127407": field4,
-				"entry.1336341702": email, "entry.728973787": name, "entry.650664319": designation, "entry.804634005": affiliation},
+				"entry.1336341702": email},
 	    type: "POST",
 	    dataType: "xml",
 	    success: function(d)

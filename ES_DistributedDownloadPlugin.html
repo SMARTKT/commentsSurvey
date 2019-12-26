@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What a comment!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+      <label for="emailField"><b>Email id</b></label>
+      <input type="email" id="emailField" name="emailField" required><br>
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Useless
+    <input id="commentPartialUseful" type="radio" name="commentUsefulness" value="PU" required> Partially Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="Why do you think so?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <textarea id="commentAlternate" type="text" placeholder="If you would have written a comment for that portion of the code, what would you have written? (optional)" name="commentAlternate" style="height:100px;"></textarea> 
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+  			<!--start-->
+<div hidden id="commentCodeID">ES_DistributedDownloadPlugin</div><tr>
+<td><pre><code class="language-java">/* </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * Licensed to Elasticsearch under one or more contributor </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * license agreements. See the NOTICE file distributed with </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * this work for additional information regarding copyright </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * ownership. Elasticsearch licenses this file to you under </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * the Apache License, Version 2.0 (the "License"); you may </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * not use this file except in compliance with the License. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * You may obtain a copy of the License at </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> *    http://www.apache.org/licenses/LICENSE-2.0 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * Unless required by applicable law or agreed to in writing, </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * software distributed under the License is distributed on an </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * KIND, either express or implied.  See the License for the </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * specific language governing permissions and limitations </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * under the License. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">package org.elasticsearch.gradle; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.elasticsearch.gradle.ElasticsearchDistribution.Flavor; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.elasticsearch.gradle.ElasticsearchDistribution.Platform; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.elasticsearch.gradle.ElasticsearchDistribution.Type; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.elasticsearch.gradle.info.BuildParams; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.elasticsearch.gradle.info.GlobalBuildInfoPlugin; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.GradleException; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.NamedDomainObjectContainer; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.Plugin; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.Project; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.UnknownTaskException; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.artifacts.Configuration; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.artifacts.ConfigurationContainer; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.artifacts.Dependency; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.artifacts.dsl.DependencyHandler; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.artifacts.repositories.IvyArtifactRepository; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.credentials.HttpHeaderCredentials; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.file.FileTree; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.plugins.ExtraPropertiesExtension; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.tasks.Sync; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.api.tasks.TaskProvider; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.gradle.authentication.http.HttpHeaderAuthentication; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.io.File; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.HashMap; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.Locale; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.Map; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.concurrent.Callable; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.function.Supplier; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">/** </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * A plugin to manage getting and extracting distributions of Elasticsearch. </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * The source of the distribution could be from a local snapshot, a locally built </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * bwc snapshot, or the Elastic downloads service. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">public class DistributionDownloadPlugin implements Plugin&lt;Project> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static final String CONTAINER_NAME = "elasticsearch_distributions"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static final String FAKE_IVY_GROUP = "elasticsearch-distribution"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static final String FAKE_SNAPSHOT_IVY_GROUP = "elasticsearch-distribution-snapshot"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static final String DOWNLOAD_REPO_NAME = "elasticsearch-downloads"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static final String SNAPSHOT_REPO_NAME = "elasticsearch-snapshots"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private BwcVersions bwcVersions; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private NamedDomainObjectContainer&lt;ElasticsearchDistribution> distributionsContainer; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    @Override </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    public void apply(Project project) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        // this is needed for isInternal </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        project.getRootProject().getPluginManager().apply(GlobalBuildInfoPlugin.class); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        distributionsContainer = project.container(ElasticsearchDistribution.class, name -> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            Configuration fileConfiguration = project.getConfigurations().create("es_distro_file_" + name); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            Configuration extractedConfiguration = project.getConfigurations().create("es_distro_extracted_" + name); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            return new ElasticsearchDistribution(name, project.getObjects(), fileConfiguration, extractedConfiguration); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        project.getExtensions().add(CONTAINER_NAME, distributionsContainer); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        setupDownloadServiceRepo(project); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (BuildParams.isInternal()) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ExtraPropertiesExtension extraProperties = project.getExtensions().getExtraProperties(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            this.bwcVersions = (BwcVersions) extraProperties.get("bwcVersions"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        project.afterEvaluate(this::setupDistributions); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    @SuppressWarnings("unchecked") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    public static NamedDomainObjectContainer&lt;ElasticsearchDistribution> getContainer(Project project) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return (NamedDomainObjectContainer&lt;ElasticsearchDistribution>) project.getExtensions().getByName(CONTAINER_NAME); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    // pkg private for tests </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    void setupDistributions(Project project) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        for (ElasticsearchDistribution distribution : distributionsContainer) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            distribution.finalizeValues(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            DependencyHandler dependencies = project.getDependencies(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // for the distribution as a file, just depend on the artifact directly </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            dependencies.add(distribution.configuration.getName(), dependencyNotation(project, distribution)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // no extraction allowed for rpm, deb or docker </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (distribution.getType().shouldExtract()) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                /* for the distribution extracted, add a root level task that does the extraction, and depend on that </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                 extracted configuration as an artifact consisting of the extracted distribution directory */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                dependencies.add(distribution.getExtracted().configuration.getName(), </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    projectDependency(project, ":", configName("extracted_elasticsearch", distribution))); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                // ensure a root level download task exists </code></pre></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                setupRootDownload(project.getRootProject(), distribution); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private void setupRootDownload(Project rootProject, ElasticsearchDistribution distribution) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String extractTaskName = extractTaskName(distribution); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        // NOTE: this is *horrendous*, but seems to be the only way to check for the existence of a registered task </code></pre></td>
+<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        try { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            rootProject.getTasks().named(extractTaskName); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // already setup this version </code></pre></td>
+<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            return; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } catch (UnknownTaskException e) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // fall through: register the task </code></pre></td>
+<td><button class="btnc" type="button" id="comment11" onclick="openForm(this.id)">Comment 11</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        setupDownloadServiceRepo(rootProject); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        final ConfigurationContainer configurations = rootProject.getConfigurations(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String downloadConfigName = configName("elasticsearch", distribution); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String extractedConfigName = "extracted_" + downloadConfigName; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        final Configuration downloadConfig = configurations.create(downloadConfigName); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        configurations.create(extractedConfigName); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        rootProject.getDependencies().add(downloadConfigName, dependencyNotation(rootProject, distribution)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        // add task for extraction, delaying resolving config until runtime </code></pre></td>
+<td><button class="btnc" type="button" id="comment12" onclick="openForm(this.id)">Comment 12</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getType() == Type.ARCHIVE || distribution.getType() == Type.INTEG_TEST_ZIP) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            Supplier&lt;File> archiveGetter = downloadConfig::getSingleFile; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            String extractDir = rootProject.getBuildDir().toPath().resolve("elasticsearch-distros").resolve(extractedConfigName).toString(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            TaskProvider&lt;Sync> extractTask = rootProject.getTasks().register(extractTaskName, Sync.class, syncTask -> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                syncTask.dependsOn(downloadConfig); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                syncTask.into(extractDir); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                syncTask.from((Callable&lt;FileTree>)() -> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    File archiveFile = archiveGetter.get(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    String archivePath = archiveFile.toString(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    if (archivePath.endsWith(".zip")) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                        return rootProject.zipTree(archiveFile); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    } else if (archivePath.endsWith(".tar.gz")) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                        return rootProject.tarTree(rootProject.getResources().gzip(archiveFile)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                    throw new IllegalStateException("unexpected file extension on [" + archivePath + "]"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            rootProject.getArtifacts().add(extractedConfigName, </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                rootProject.getLayout().getProjectDirectory().dir(extractDir), </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                artifact -> artifact.builtBy(extractTask)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static void addIvyRepo(Project project, String name, String url, String group) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        project.getRepositories().ivy(ivyRepo -> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.setName(name); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.setUrl(url); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.metadataSources(IvyArtifactRepository.MetadataSources::artifact); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // this header is not a credential but we hack the capability to send this header to avoid polluting our download stats </code></pre></td>
+<td><button class="btnc" type="button" id="comment13" onclick="openForm(this.id)">Comment 13</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.credentials(HttpHeaderCredentials.class, creds -> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                creds.setName("X-Elastic-No-KPI"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                creds.setValue("1"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.getAuthentication().create("header", HttpHeaderAuthentication.class); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.patternLayout(layout -> layout.artifact("/downloads/elasticsearch/[module]-[revision](-[classifier]).[ext]")); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            ivyRepo.content(content -> content.includeGroup(group)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        project.getRepositories().all(repo -> { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (repo.getName().equals(name) == false) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                // all other repos should ignore the special group name </code></pre></td>
+<td><button class="btnc" type="button" id="comment14" onclick="openForm(this.id)">Comment 14</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                repo.content(content -> content.excludeGroup(group)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static void setupDownloadServiceRepo(Project project) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (project.getRepositories().findByName(DOWNLOAD_REPO_NAME) != null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            return; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        addIvyRepo(project, DOWNLOAD_REPO_NAME, "https://artifacts.elastic.co", FAKE_IVY_GROUP); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (BuildParams.isInternal() == false) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // external, so add snapshot repo as well </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            addIvyRepo(project, SNAPSHOT_REPO_NAME, "https://snapshots.elastic.co", FAKE_SNAPSHOT_IVY_GROUP); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    /** </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * Returns a dependency object representing the given distribution. </code></pre></td>
+<td><button class="btnc" type="button" id="comment15" onclick="openForm(this.id)">Comment 15</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * The returned object is suitable to be passed to {@link DependencyHandler}. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * The concrete type of the object will either be a project {@link Dependency} or </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * a set of maven coordinates as a {@link String}. Project dependencies point to </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * a project in the Elasticsearch repo either under `:distribution:bwc`, </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * `:distribution:archives` or :distribution:packages`. Maven coordinates point to </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * either the integ-test-zip coordinates on maven central, or a set of artificial </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     * coordinates that resolve to the Elastic download service through an ivy repository. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">     */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private Object dependencyNotation(Project project, ElasticsearchDistribution distribution) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (BuildParams.isInternal()) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            // non-external project, so depend on local build </code></pre></td>
+<td><button class="btnc" type="button" id="comment16" onclick="openForm(this.id)">Comment 16 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (VersionProperties.getElasticsearch().equals(distribution.getVersion())) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                return projectDependency(project, distributionProjectPath(distribution), "default"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            BwcVersions.UnreleasedVersionInfo unreleasedInfo = bwcVersions.unreleasedInfo(Version.fromString(distribution.getVersion())); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (unreleasedInfo != null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                assert distribution.getBundledJdk(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                return projectDependency(project, unreleasedInfo.gradleProjectPath, distributionProjectName(distribution)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getType() == Type.INTEG_TEST_ZIP) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            return "org.elasticsearch.distribution.integ-test-zip:elasticsearch:" + distribution.getVersion() + "@zip"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        Version distroVersion = Version.fromString(distribution.getVersion()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String extension = distribution.getType().toString(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String classifier = ":x86_64"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getType() == Type.ARCHIVE) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            extension = distribution.getPlatform() == Platform.WINDOWS ? "zip" : "tar.gz"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (distroVersion.onOrAfter("7.0.0")) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                classifier = ":" + distribution.getPlatform() + "-x86_64"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } else { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                classifier = ""; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } else if (distribution.getType() == Type.DEB) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            classifier = ":amd64"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String flavor = ""; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getFlavor() == Flavor.OSS && distroVersion.onOrAfter("6.3.0")) { // Flavor is an enum. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            flavor = "-oss"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String group = distribution.getVersion().endsWith("-SNAPSHOT") ? FAKE_SNAPSHOT_IVY_GROUP : FAKE_IVY_GROUP; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return group + ":elasticsearch" + flavor + ":" + distribution.getVersion() + classifier + "@" + extension; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static Dependency projectDependency(Project project, String projectPath, String projectConfig) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (project.findProject(projectPath) == null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            throw new GradleException("no project [" + projectPath + "], project names: " + project.getRootProject().getAllprojects()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        Map&lt;String, Object> depConfig = new HashMap&lt;>(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        depConfig.put("path", projectPath); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        depConfig.put("configuration", projectConfig); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return project.getDependencies().project(depConfig); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static String distributionProjectPath(ElasticsearchDistribution distribution) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String projectPath = ":distribution"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        switch (distribution.getType()) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            case INTEG_TEST_ZIP: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                projectPath += ":archives:integ-test-zip"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            case DOCKER: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                projectPath += ":docker:"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                projectPath += distributionProjectName(distribution); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            default: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                projectPath += distribution.getType() == Type.ARCHIVE ? ":archives:" : ":packages:"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                projectPath += distributionProjectName(distribution); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return projectPath; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static String distributionProjectName(ElasticsearchDistribution distribution) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String projectName = ""; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getFlavor() == Flavor.OSS) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            projectName += "oss-"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getBundledJdk() == false) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            projectName += "no-jdk-"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getType() == Type.ARCHIVE) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            Platform platform = distribution.getPlatform(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            projectName += platform.toString() + (platform == Platform.WINDOWS ? "-zip" : "-tar"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } else if (distribution.getType() == Type.DOCKER) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            projectName += "docker-export"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } else { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            projectName += distribution.getType(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return projectName; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static String configName(String prefix, ElasticsearchDistribution distribution) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return prefix + "_" + distribution.getVersion() + "_" + distribution.getType() + "_" + </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            (distribution.getPlatform() == null ? "" : distribution.getPlatform() + "_") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            + distribution.getFlavor() + (distribution.getBundledJdk() ? "" : "_nojdk"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static String capitalize(String s) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return s.substring(0, 1).toUpperCase(Locale.ROOT) + s.substring(1); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    private static String extractTaskName(ElasticsearchDistribution distribution) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        String taskName = "extractElasticsearch"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getType() != Type.INTEG_TEST_ZIP) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (distribution.getFlavor() == Flavor.OSS) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                taskName += "Oss"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            if (distribution.getBundledJdk() == false) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                taskName += "NoJdk"; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (distribution.getType() == Type.ARCHIVE) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            taskName += capitalize(distribution.getPlatform().toString()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } else if (distribution.getType() != Type.INTEG_TEST_ZIP) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            taskName += capitalize(distribution.getType().toString()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        taskName += distribution.getVersion(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        return taskName; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">} </code></pre></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-java">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

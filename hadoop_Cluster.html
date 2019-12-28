@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What a comment!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+      <label for="emailField"><b>Email id</b></label>
+      <input type="email" id="emailField" name="emailField" required><br>
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Useless
+    <input id="commentPartialUseful" type="radio" name="commentUsefulness" value="PU" required> Partially Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="Why do you think so?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <textarea id="commentAlternate" type="text" placeholder="If you would have written a comment for that portion of the code, what would you have written? (optional)" name="commentAlternate" style="height:100px;"></textarea> 
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+  			<!--start-->
+<div hidden id="commentCodeID">hadoop_Cluster</div><tr>
+<td><pre><code class="language-java">package org.apache.hadoop.mapreduce; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.io.FileNotFoundException; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.io.IOException; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.net.InetSocketAddress; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.security.PrivilegedExceptionAction; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.ArrayList; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.List; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.ServiceConfigurationError; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import java.util.ServiceLoader; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import com.google.common.annotations.VisibleForTesting; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.classification.InterfaceAudience; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.classification.InterfaceStability; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.conf.Configuration; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.fs.FileSystem; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.fs.Path; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.io.Text; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.mapred.JobConf; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.mapreduce.protocol.ClientProtocol; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.mapreduce.protocol.ClientProtocolProvider; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.mapreduce.security.token.delegation.DelegationTokenIdentifier; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.mapreduce.util.ConfigUtil; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.mapreduce.v2.LogParams; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.security.UserGroupInformation; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.security.token.SecretManager.InvalidToken; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.apache.hadoop.security.token.Token; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.slf4j.Logger; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">import org.slf4j.LoggerFactory; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">/** </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> * Provides a way to access information about the map/reduce cluster. </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">@InterfaceAudience.Public </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">@InterfaceStability.Evolving </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">public class Cluster { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  @InterfaceStability.Evolving </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  public enum JobTrackerStatus {INITIALIZING, RUNNING}; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private ClientProtocolProvider clientProtocolProvider; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private ClientProtocol client; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private UserGroupInformation ugi; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private Configuration conf; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private FileSystem fs = null; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private Path sysDir = null; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private Path stagingAreaDir = null; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private Path jobHistoryDir = null; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private static final Logger LOG = </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      LoggerFactory.getLogger(Cluster.class); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  @VisibleForTesting </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  static Iterable&lt;ClientProtocolProvider> frameworkLoader = </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      ServiceLoader.load(ClientProtocolProvider.class); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private volatile List&lt;ClientProtocolProvider> providerList = null; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private void initProviderList() { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    if (providerList == null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      synchronized (frameworkLoader) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        // If provider list if null, build a localProviderList from frameworkLoader. </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (providerList == null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          List&lt;ClientProtocolProvider> localProviderList = </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">              new ArrayList&lt;ClientProtocolProvider>(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          try { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            for (ClientProtocolProvider provider : frameworkLoader) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">              localProviderList.add(provider); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          } catch(ServiceConfigurationError e) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            LOG.info("Failed to instantiate ClientProtocolProvider, please " </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                         + "check the /META-INF/services/org.apache." </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                         + "hadoop.mapreduce.protocol.ClientProtocolProvider " </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">                         + "files on the classpath", e); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          providerList = localProviderList; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  static { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    ConfigUtil.loadResources(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  public Cluster(Configuration conf) throws IOException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    this(null, conf); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  public Cluster(InetSocketAddress jobTrackAddr, Configuration conf)  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      throws IOException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    this.conf = conf; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    this.ugi = UserGroupInformation.getCurrentUser(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    initialize(jobTrackAddr, conf); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private void initialize(InetSocketAddress jobTrackAddr, Configuration conf) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      throws IOException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    initProviderList(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    final IOException initEx = new IOException( </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        "Cannot initialize Cluster. Please check your configuration for " </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            + MRConfig.FRAMEWORK_NAME </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            + " and the correspond server addresses."); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    if (jobTrackAddr != null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      LOG.info( </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          "Initializing cluster for Job Tracker=" + jobTrackAddr.toString()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    for (ClientProtocolProvider provider : providerList) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      LOG.debug("Trying ClientProtocolProvider : " </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          + provider.getClass().getName()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      ClientProtocol clientProtocol = null; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      try { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (jobTrackAddr == null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          clientProtocol = provider.create(conf); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } else { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          clientProtocol = provider.create(jobTrackAddr, conf); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        if (clientProtocol != null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          clientProtocolProvider = provider; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          client = clientProtocol; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          LOG.debug("Picked " + provider.getClass().getName() </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">              + " as the ClientProtocolProvider"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } else { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          LOG.debug("Cannot pick " + provider.getClass().getName() </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">              + " as the ClientProtocolProvider - returned null protocol"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      } catch (Exception e) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        final String errMsg = "Failed to use " + provider.getClass().getName() </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            + " due to error: "; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        initEx.addSuppressed(new IOException(errMsg, e)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        LOG.info(errMsg, e); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    if (null == clientProtocolProvider || null == client) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      throw initEx; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  ClientProtocol getClient() { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    return client; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  Configuration getConf() { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    return conf; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  /** </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   * Close the &lt;code>Cluster&lt;/code>. </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   * @throws IOException </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  public synchronized void close() throws IOException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    clientProtocolProvider.close(client); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  private Job[] getJobs(JobStatus[] stats) throws IOException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    List&lt;Job> jobs = new ArrayList&lt;Job>(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    for (JobStatus stat : stats) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      jobs.add(Job.getInstance(this, stat, new JobConf(stat.getJobFile()))); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    return jobs.toArray(new Job[0]); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  /** </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   * Get the file system where job-specific files are stored </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   *  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   * @return object of FileSystem </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   * @throws IOException </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   * @throws InterruptedException </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">   */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  public synchronized FileSystem getFileSystem()  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      throws IOException, InterruptedException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    if (this.fs == null) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      try { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        this.fs = ugi.doAs(new PrivilegedExceptionAction&lt;FileSystem>() { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          public FileSystem run() throws IOException, InterruptedException { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            final Path sysDir = new Path(client.getSystemDir()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            return sysDir.getFileSystem(getConf()); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">          } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        }); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      } catch (InterruptedException e) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        throw new RuntimeException(e); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">      } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">    return fs; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">} </code></pre></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-java">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

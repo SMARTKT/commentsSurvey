@@ -130,6 +130,10 @@
 <td><pre><code class="language-java">import org.elasticsearch.gradle.info.BuildParams; </code></pre></td>
 </tr>
 <tr>
+<td><pre><code class="language-java">// Added as a part of commit a16702c </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
 <td><pre><code class="language-java">import org.elasticsearch.gradle.info.GlobalBuildInfoPlugin; </code></pre></td>
 </tr>
 <tr>
@@ -209,7 +213,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java"> * A plugin to manage getting and extracting distributions of Elasticsearch. </code></pre></td>
-<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java"> * </code></pre></td>
@@ -264,13 +268,17 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">        // this is needed for isInternal </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">        project.getRootProject().getPluginManager().apply(GlobalBuildInfoPlugin.class); </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-java"> </code></pre></td>
+<td><pre><code class="language-java">        /* The parameters for project.container(Class&lt;T> type, groovy.lang.Closure closure). The closure object is given </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">            in the form of lambda function. */ </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">        distributionsContainer = project.container(ElasticsearchDistribution.class, name -> { </code></pre></td>
@@ -340,10 +348,14 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">    // pkg private for tests </code></pre></td>
-<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">    void setupDistributions(Project project) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-java">        /* We iterate using for-each construct instead of iterator as the variable distribution does not need to be changed.*/ </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">        for (ElasticsearchDistribution distribution : distributionsContainer) { </code></pre></td>
@@ -359,7 +371,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // for the distribution as a file, just depend on the artifact directly </code></pre></td>
-<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">            dependencies.add(distribution.configuration.getName(), dependencyNotation(project, distribution)); </code></pre></td>
@@ -369,14 +381,14 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // no extraction allowed for rpm, deb or docker </code></pre></td>
-<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
+<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">            if (distribution.getType().shouldExtract()) { </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">                /* for the distribution extracted, add a root level task that does the extraction, and depend on that </code></pre></td>
-<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
+<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">                 extracted configuration as an artifact consisting of the extracted distribution directory */ </code></pre></td>
@@ -389,7 +401,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">                // ensure a root level download task exists </code></pre></td>
-<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
+<td><button class="btnc" type="button" id="comment11" onclick="openForm(this.id)">Comment 11</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">                setupRootDownload(project.getRootProject(), distribution); </code></pre></td>
@@ -414,7 +426,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">        // NOTE: this is *horrendous*, but seems to be the only way to check for the existence of a registered task </code></pre></td>
-<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
+<td><button class="btnc" type="button" id="comment12" onclick="openForm(this.id)">Comment 12</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">        try { </code></pre></td>
@@ -424,7 +436,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // already setup this version </code></pre></td>
-<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10</button></td>
+<td><button class="btnc" type="button" id="comment13" onclick="openForm(this.id)">Comment 13</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">            return; </code></pre></td>
@@ -434,7 +446,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // fall through: register the task </code></pre></td>
-<td><button class="btnc" type="button" id="comment11" onclick="openForm(this.id)">Comment 11</button></td>
+<td><button class="btnc" type="button" id="comment14" onclick="openForm(this.id)">Comment 14</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">        } </code></pre></td>
@@ -468,7 +480,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">        // add task for extraction, delaying resolving config until runtime </code></pre></td>
-<td><button class="btnc" type="button" id="comment12" onclick="openForm(this.id)">Comment 12</button></td>
+<td><button class="btnc" type="button" id="comment15" onclick="openForm(this.id)">Comment 15</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">        if (distribution.getType() == Type.ARCHIVE || distribution.getType() == Type.INTEG_TEST_ZIP) { </code></pre></td>
@@ -556,7 +568,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // this header is not a credential but we hack the capability to send this header to avoid polluting our download stats </code></pre></td>
-<td><button class="btnc" type="button" id="comment13" onclick="openForm(this.id)">Comment 13</button></td>
+<td><button class="btnc" type="button" id="comment16" onclick="openForm(this.id)">Comment 16</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">            ivyRepo.credentials(HttpHeaderCredentials.class, creds -> { </code></pre></td>
@@ -590,7 +602,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">                // all other repos should ignore the special group name </code></pre></td>
-<td><button class="btnc" type="button" id="comment14" onclick="openForm(this.id)">Comment 14</button></td>
+<td><button class="btnc" type="button" id="comment17" onclick="openForm(this.id)">Comment 17</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">                repo.content(content -> content.excludeGroup(group)); </code></pre></td>
@@ -627,6 +639,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // external, so add snapshot repo as well </code></pre></td>
+<td><button class="btnc" type="button" id="comment18" onclick="openForm(this.id)">Comment 18</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">            addIvyRepo(project, SNAPSHOT_REPO_NAME, "https://snapshots.elastic.co", FAKE_SNAPSHOT_IVY_GROUP); </code></pre></td>
@@ -645,7 +658,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">     * Returns a dependency object representing the given distribution. </code></pre></td>
-<td><button class="btnc" type="button" id="comment15" onclick="openForm(this.id)">Comment 15</button></td>
+<td><button class="btnc" type="button" id="comment19" onclick="openForm(this.id)">Comment 19</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java">     * </code></pre></td>
@@ -685,7 +698,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-java">            // non-external project, so depend on local build </code></pre></td>
-<td><button class="btnc" type="button" id="comment16" onclick="openForm(this.id)">Comment 16 (LAST)</button></td>
+<td><button class="btnc" type="button" id="comment20" onclick="openForm(this.id)">Comment 20 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-java"> </code></pre></td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>What a comment!</title>
+    <title>AI bot</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -58,10 +58,18 @@
 <td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
+<td><pre><code class="language-py"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-py"># document links https://EvanMark/light_riders_bot </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
 <td><pre><code class="language-py">class Bot: </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">    def __init__(self): </code></pre></td>
+<td><pre><code class="language-py">    def __init__(self): #initialise </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">        self.game = None </code></pre></td>
@@ -85,7 +93,8 @@
 <td><pre><code class="language-py">    """ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">    returns the next possible position of the my bot based on the given direction </code></pre></td>
+<td><pre><code class="language-py">    returns the next possible position  / direction  </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">    """ </code></pre></td>
@@ -176,6 +185,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-py">    applies the flood fill algorithm for the given position </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">    """ </code></pre></td>
@@ -196,19 +206,11 @@
 <td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">    """ </code></pre></td>
+<td><pre><code class="language-py">   </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">    flood fill algorithm implementation. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">    Returns the count of legal boxes on our field for the given position </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">    """ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py"> </code></pre></td>
+<td><pre><code class="language-py">    # works on a two dimensional data matrix (each of size 8) generated from light rider bot module  </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">    def flood_fill(self, position, visited): </code></pre></td>
@@ -217,13 +219,7 @@
 <td><pre><code class="language-py">        row, col = position </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">        # if we are out of bounds </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">        # or have already visited the current position </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">        # or can't visit this box </code></pre></td>
+<td><pre><code class="language-py">        </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">        if row &lt; 0 or col &lt; 0 or row > self.game.field_width - 1 or \ </code></pre></td>
@@ -241,13 +237,7 @@
 <td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">        visited.append(position)  # mark current position as visited </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">        # get position count recursively from the current box till the end </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">        # or an illegal box </code></pre></td>
+<td><pre><code class="language-py">        visited.append(position)   </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">        return 1 + self.flood_fill((row - 1, col), visited) \ </code></pre></td>
@@ -284,13 +274,13 @@
 </tr>
 <tr>
 <td><pre><code class="language-py">        # with open('log.txt', 'a') as file: </code></pre></td>
-<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">        #     file.write("Round: " + str(self.game.round) + " Begin!\n" + "length of legal_dirs: " + str(len(legal)) + "\n") </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-py"> </code></pre></td>
+<td><pre><code class="language-py">      </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">        if len(legal) == 0: </code></pre></td>
@@ -302,10 +292,10 @@
 <td><pre><code class="language-py">        else: </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">            # remove useless tuples from legal var </code></pre></td>
+<td><pre><code class="language-py">  </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">            legal_dirs = []  # legal directions (legal moves w/o the tuples) </code></pre></td>
+<td><pre><code class="language-py">            legal_dirs = []   </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">            for _, direction in legal: </code></pre></td>
@@ -314,19 +304,7 @@
 <td><pre><code class="language-py">                legal_dirs.append(direction) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">            # if on first round </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">            # just head to the nearest wall </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-py">            if self.game.round == 0: </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">                # calculate distances from each wall </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                dist_to_walls = {} </code></pre></td>
@@ -347,7 +325,8 @@
 <td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                # find min distance </code></pre></td>
+<td><pre><code class="language-py">                # find min distance based on dist_to_walls  </code></pre></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                desired_direction = min(dist_to_walls, key=dist_to_walls.get) </code></pre></td>
@@ -363,10 +342,10 @@
 </tr>
 <tr>
 <td><pre><code class="language-py">                # TODO Maybe add dead end check? (only needed when next move is "pass") </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                # TODO Maybe can add it before issue_order_pass </code></pre></td>
+<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py"> </code></pre></td>
@@ -375,19 +354,26 @@
 <td><pre><code class="language-py">                # Remove unallowed moves (it seems that is_legal wasn't good enough) </code></pre></td>
 </tr>
 <tr>
+<td><pre><code class="language-py"> </code></pre></td>
+</tr>
+<tr>
 <td><pre><code class="language-py">                if self.last_move == "up": </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                    try: </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                        # legal_dirs.remove("up") </code></pre></td>
+<td><pre><code class="language-py">                #NOTE: this is *horrendous*, but seems to be the only way to check for legal moves </code></pre></td>
+<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                        legal_dirs.remove("down") </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                    except ValueError: </code></pre></td>
+<td><pre><code class="language-py">                    except ValueError:  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-py">                     </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                        pass </code></pre></td>
@@ -397,9 +383,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-py">                    try: </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">                        # legal_dirs.remove("down") </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                        legal_dirs.remove("up") </code></pre></td>
@@ -417,9 +400,6 @@
 <td><pre><code class="language-py">                    try: </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                        # legal_dirs.remove("left") </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-py">                        legal_dirs.remove("right") </code></pre></td>
 </tr>
 <tr>
@@ -435,9 +415,6 @@
 <td><pre><code class="language-py">                    try: </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                        # legal_dirs.remove("right") </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-py">                        legal_dirs.remove("left") </code></pre></td>
 </tr>
 <tr>
@@ -450,8 +427,7 @@
 <td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                # Check if any immediate neighbor square is illegal move and remove it </code></pre></td>
-<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
+<td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                my_id = self.game.my_botid </code></pre></td>
@@ -529,10 +505,7 @@
 <td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                # Flood fill count in 2 directions to find max space and make the move </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">                # that leads there </code></pre></td>
+<td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                elif len(legal_dirs) == 2: </code></pre></td>
@@ -577,7 +550,8 @@
 <td><pre><code class="language-py">                        desired_direction = max(next_moves_dists, key=next_moves_dists.get) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                    else: </code></pre></td>
+<td><pre><code class="language-py">                    else:  # this probably never comes up - not sure </code></pre></td>
+<td><button class="btnc" type="button" id="comment11" onclick="openForm(this.id)">Comment 11 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                        desired_direction = max(next_moves_counts, key=next_moves_counts.get) </code></pre></td>
@@ -586,10 +560,7 @@
 <td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                # Flood fill count in 3 directions to find max space and make the move </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">                # that leads there </code></pre></td>
+<td><pre><code class="language-py"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                elif len(legal_dirs) == 3: </code></pre></td>
@@ -643,19 +614,13 @@
 <td><pre><code class="language-py">                        desired_direction = self.voronoi(legal_dirs) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-py">                else:  # this probably never comes up - not sure </code></pre></td>
+<td><pre><code class="language-py">                else:  </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py">                    desired_direction = "pass" </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">        # with open('log.txt', 'a') as file: </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-py">        #     file.write("End: length of legal_dirs: " + str(len(legal_dirs)) + "\n") </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-py"> </code></pre></td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Curl_Util</title>
+    <title>Curl Util</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -638,7 +638,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> * zero or negative timeout value will return immediately. </code></pre></td>
-<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5 (LAST)</button></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * </code></pre></td>
@@ -686,13 +686,14 @@
 <td><pre><code class="language-c">  int r = 0; </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
+<td><pre><code class="language-c">  </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">  if(!timeout_ms) </code></pre></td>
+<td><pre><code class="language-c">  //if(!timeout_ms) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">    return 0; </code></pre></td>
+<td><pre><code class="language-c">    //return 0; </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">  if(timeout_ms &lt; 0) { </code></pre></td>
@@ -707,6 +708,13 @@
 <td><pre><code class="language-c">  } </code></pre></td>
 </tr>
 <tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// todo: increase the sleep for vim editors in the next release </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
+</tr>
+<tr>
 <td><pre><code class="language-c">#if defined(MSDOS) </code></pre></td>
 </tr>
 <tr>
@@ -716,13 +724,18 @@
 <td><pre><code class="language-c">#elif defined(USE_WINSOCK) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">  Sleep(timeout_ms); </code></pre></td>
+<td><pre><code class="language-c">  Sleep(timeout_ms); // activate sleep function  </code></pre></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#else </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">  pending_ms = timeout_ms; </code></pre></td>
+<td><pre><code class="language-c">  // assigned to integer variable  pending_ms </code></pre></td>
+<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  pending_ms = timeout_ms;  </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">  initial_tv = tvnow(); </code></pre></td>
@@ -731,7 +744,7 @@
 <td><pre><code class="language-c">  do { </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">    int error; </code></pre></td>
+<td><pre><code class="language-c">    int error;  </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#if defined(HAVE_POLL_FINE) </code></pre></td>
@@ -762,6 +775,10 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">    error = errno; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    // this probably never comes up - not sure </code></pre></td>
+<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    if(error && (error != EINTR)) </code></pre></td>

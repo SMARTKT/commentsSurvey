@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>plplot_mem</title>
+    <title>PL plot Mem</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -245,8 +245,44 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">//  used extensively in resetting standard x-y plots, semi-log plots  </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3 (LAST)</button></td>
+<td><pre><code class="language-c">//  plFree2dGrid function used extensively in resetting standard x-y plots, semi-log plots  </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* the data type PLINT is of 32 bit, unsigned and PLFLT is of 64 bit size,  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">created specifically for PLplot API's.  </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">*/ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// PLINT, PLFLT is defined in plplotP.h </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* more information of PLplot datatypes and function can be found at their  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">official documentation page -- http://plplot.sourceforge.net/docbook-manual/plplot-5.15.0.pdf  </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">*/ </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -267,7 +303,8 @@
 <td><pre><code class="language-c">    PLINT i; </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
+<td><pre><code class="language-c">    // NOTE: this is *horrendous*, but seems to be the only way to free grid </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    for ( i = 0; i &lt; nx; i++ ) </code></pre></td>
@@ -277,6 +314,10 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// a function to free 2d grid </code></pre></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    free( (void *) f ); </code></pre></td>
